@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #333;
+        }
+        #quiz-container {
+    background: #1a1a1a;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    margin: auto;
+}
+
+button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background: #e63946;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #a82a33;
+}
+a{
+    text-decoration: none;
+    
+}
+
+    </style>
+</head>
+<body>
+    <div id="quiz-container">
+    <h2>Welcher Charakter aus dem Stück bist du?</h2>
+    <div id="question-box">
+        <p id="question-text"></p>
+        <div id="answer-buttons"></div>
+    </div>
+    <div id="result-box" style="display:none;">
+        <h3>Du bist: <span id="character-name"></span></h3>
+        <p id="character-desc"></p>
+        <a href="index.html">
+        <button>Zurück zur Homepage</button></a>
+    </div>
+</div>
+
+</body>
+<script>
+   
+const characters = {
+    "Opiumraucher": "Du bist Krank, Süchtig und Rücksichtslos!",
+    "Aouda": "Du bist dankbar, ",
+    "Fogg": "Du bist spartanisch, außergewöhnlich und genau.",
+    "Fix": "Du bist stur wie ein Rammbock, jeder macht mal Fehler.",
+    "Passepartout": "Du bist treu und loyal du läst deine Freunde nicht im Stich."
+};
+
+const questions = [
+    {
+        text: "",
+        answers: [
+            { text: "", types: ["", ""] },
+            { text: "", types: ["", ""] },
+            { text: "", types: [""] }
+        ]
+    },
+    {
+        text: "",
+        answers: [
+            { text: "", types: ["", ""] },
+            { text: "", types: ["", ""] },
+            { text: "", types: [""] }
+        ]
+    },
+    {
+        text: "",
+        answers: [
+            { text: "", types: [""] },
+            { text: "", types: ["", ""] },
+            { text: "", types: ["", ""] }
+        ]
+    }
+];
+
+let currentQuestion = 0;
+let scores = { 
+    "Der Entschlossene": 0, "Die Geheimnisvolle": 0, 
+    "Der Optimist": 0, "Die Skeptikerin": 0, "Der Vermittler": 0 
+};
+
+function showQuestion() {
+    const q = questions[currentQuestion];
+    document.getElementById("question-text").innerText = q.text;
+    const btnBox = document.getElementById("answer-buttons");
+    btnBox.innerHTML = "";
+
+    q.answers.forEach(ans => {
+        const btn = document.createElement("button");
+        btn.innerText = ans.text;
+        btn.onclick = () => {
+            ans.types.forEach(type => scores[type]++);
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        };
+        btnBox.appendChild(btn);
+    });
+}
+
+function showResult() {
+    document.getElementById("question-box").style.display = "none";
+    const resultBox = document.getElementById("result-box");
+    resultBox.style.display = "block";
+    
+    
+    const winner = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+    
+    document.getElementById("character-name").innerText = winner;
+    document.getElementById("character-desc").innerText = characters[winner];
+}
+
+function resetQuiz() {
+    currentQuestion = 0;
+    for (let char in scores) scores[char] = 0;
+    document.getElementById("question-box").style.display = "block";
+    document.getElementById("result-box").style.display = "none";
+    showQuestion();
+}
+
+showQuestion();
+
+</script>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theateraufführung: In 80 Tagen um die Welt</title>
+    
+    <meta property="og:title" content="FWS Achtklass-stück">
+    <meta property="og:description" content="Komm vorbei! Kostenloser Eintritt. Spenden Erbeten.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--<script src="https://jsdelivr.net"></script>-->
+
+    <div id="top"></div>
+    <nav class="mobile-nav">
+  <a class="nav-link"onclick="changeside(1);" href="#top"><span>🏠</span>Home</a>
+  <a class="nav-link"onclick="changeside(2);" href="#top"><span>👤</span>Rollen</a>
+  <a class="nav-link"onclick="changeside(3);" href="#top"><span>🔍</span>Infos</a>
+  <a class="nav-link"onclick="changeside(4);" href="#top"><span>🧐</span>Story</a>
+  <a class="nav-link"onclick="changeside(5);" href="#top"><span>🏞️</span>Galerie</a>
+</nav>
+<!--
+    <menu id="menubar">
+        <a onclick="changeside(1);">Startseite</a>
+        <a onclick="changeside(2);">Rollen</a>
+        <a onclick="changeside(3);">Infos</a>
+        <a onclick="changeside(4);">Story</a>
+    </menu>
+-->
+    <div id="loader-wrapper">
+        <div class="spinner"></div>
+        <p>Bühne wird vorbereitet...</p>
+    </div>
+
+    <header id="header">
+        <!--<button id="themeToggle" class="mode-btn">🌙 Modus</button>-->
+        <b><h1 id="label">In 80 Tagen um die Welt</h1></b>
+        <h2 id="acht">Achtklass-Stück</h2>
+        <p id="timerundheader">Ein Theatererlebnis der besonderen Art</p>
+        <div id="timer"><b>Lade Countdown...</b></div>
+    </header>
+
+    <main>
+        
+            <div id="info-box">
+                <h2>Datum:</h2>
+               <i> <p><strong>1: </strong> 8. Mai 2026 | <strong>Einlass:</strong> 19:30 Uhr</p>
+                <p><strong>2: </strong> 9. Mai 2026 | <strong>Einlass:</strong> 19:30 Uhr</p>
+                <p><strong>3: </strong> 10. Mai 2026 | <strong>Einlass:</strong> 16:00 Uhr</p>
+                </i>
+                
+            </div>
+    
+        </section>
+        <div id="story">
+            <h2>"In 80 Tagen um die Welt"</h2>
+            Als Phileas Fogg mit mehreren Mitgliedern des Clubs der exzentrischen die Wette abschließt, das er in 80 Tagen um die Welt reisen kann, geht es auf eine Abenteuerliche Reise für ihn und seinem neuen Kammer-diener Passepartout. Allerdings folgt ihnen ein Agent des Scotland yard, Mister Fix. Er vermutete, dass Phileas Fogg der Bankräuber ist der die Bank von England ausgeraubt hat. So stehen Phileas Fogg nicht nur die Gefahren der Welt im Weg, sondern auch noch ein Agent des Scotland yard.
+        </div>
+        
+        
+
+        
+        <section id="location-section">
+            <h3>Veranstaltungsort</h3>
+            <div class="map-container">
+                <i>
+            Freie Waldorfschule <br>
+            Münster <br>
+            Rudolf Steiner Weg 11  
+        </i>  
+            </div>
+            
+        </section>
+
+        <section id="cast-section">
+            <h2>Besetzung</h2>
+            <p><small>Klicke auf ein Bild für mehr Informationen</small></p>
+            <div class="cast-grid" id="castContainer"></div>
+        </section>
+        
+        <section id="preview">
+            <div class="preview-box">
+                <h2>Story</h2>
+                Als Phileas Fogg mit mehreren Mitgliedern des Clubs der exzentrischen die Wette abschließt, das er in 80 Tagen um die Welt reisen kann, geht es auf eine Abenteuerliche Reise für ihn und seinem neuen Kammer-diener Passepartout...
+                <a href="#top"><button class="button" onclick="changeside(4)">Zur Story</button></a>
+            </div>
+            <div class="preview-box">
+
+                <h2>Galerie</h2>
+                <img src="bilder/bild.svg"> 
+                <a href="#top"><button class="button" onclick="changeside(5)">Zur Galerie</button></a>
+            </div>
+            <div class="preview-box">
+
+                <h2>FAQ</h2>
+                Oft gefragte Fragen:
+                <a href="#faq"><button class="button" onclick="changeside(3)">Zum FAQ</button></a>
+            </div>
+        </section>
+        <section id="faq">
+            
+            <div class="faq">
+            <h2>
+                Kostet der Eintritt?
+            </h2>
+            <p>Nein. Der Eintritt ist Kostenlos. Spenden sind erwünscht(Aber keine Pflicht)</p>
+            </div>
+            <div class="faq">
+            <h2>
+                Wie lange dauert das Stück?
+            </h2>
+            <p>Geplant ist eine länge von 2h.</p>
+            </div>
+        
+        </section>
+        <div id="foto-galerie" class="galerie-grid"></div>
+        <div id="modal" class="modal" onclick="closeModal()">
+  <span class="close">&times;</span>
+  <img id="modal-img" src="" alt="Vollbild">
+  <p id="modal-text"></p>
+</div>
+<div id="quiz">
+
+</div>
+<table id="tableroles">
+  <thead>
+    <tr>
+      <th>Besetzung A</th>
+      <th>Rolle</th>
+      <th>Besetzung B</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+  
+</table>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                
+                <h3>Kontakt</h3>
+                <p>Leiterin des Theaterstücks:<br>E-Mail: <a href="mailto:elke.terhaar@waldorfschule-ms.de"><i>elke.terhaar@waldorfschule-ms.de</i></a></p>
+                <p>CO-Leiterin des Theaterstücks:<br>E-Mail: <a href="mailto:mareike@temmen.ohio"><i>mareike@temmen.ohio</i></a></p>
+            
+        </div>
+            <div class="footer-section">
+                <h3>Rechtliches</h3>
+                <nav><a href="#header">Impressum</a> | <a href="#header">Datenschutz</a></nav>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Achteklasse</div>
+        <br>
+        <input type="text"id="admin" placeholder="Passwort eingeben">
+        <button onclick="submit()" id="admin2">Submit</button>
+        <br>
+    </footer>
+
+    <script src="script.js">
+        
+    </script>
+</body>
+</html>
