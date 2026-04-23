@@ -8,6 +8,7 @@ var tableroles = document.getElementById("tableroles");
 var timer = document.getElementById("timer");
 var infobox = document.getElementById("info-box");
 var story = document.getElementById("story");
+var datenschutz = document.getElementById("datenschutz");
 var preview = document.getElementById("preview");
 var locationsection = document.getElementById("location-section");
 var timerundheader = document.getElementById("timerundheader");
@@ -18,7 +19,7 @@ window.addEventListener("load", () => {
 
 // Liste deiner Termine (chronologisch sortiert)
 let eventDates = [
-    new Date("15 April, 2026 15:24:00").getTime(),
+    new Date("17 April, 2026 13:40:00").getTime(),
     new Date("8 May, 2026 19:30:00").getTime(),
     new Date("9 May, 2026 19:30:00").getTime(),
     new Date("10 May, 2026 16:00:00").getTime()
@@ -81,32 +82,38 @@ themeBtn.onclick = () => {
 };
 */
 const cast = [
-    { name: "Toni/Charlotte", rolle: "Mister Fogg", info: "Mister Fogg reist um die Welt und muss gegen den Dedektiv Fix kämpfen", img: "bilder/bild.svg" },
-    { name: "Julian/Jo", rolle: "Passepartout", info: "Ich heiße Jean Passepartout. Den Spitznamen 'Passepartout' habe ich bekommen weil ich aus jeder Situation herauskomme. Ich bin stolzer und treuer Franzose und bin anpassungsfähig. Außerdem bin ich viel gereist und habe an vielen Stellen gearbeitet. Jetzt abeite ich beim exzentrischen Fogg und hoffe da Ruhe zu finden.", img: "bilder/bild.svg" },
-    { name: "Noah/Anastasia", rolle: "Sullivan", info: "Hallo ich bin Sullivan und bin Mitglied beim Club der exzentrischen. Ich bin sehr skeptisch nachdem Mr Fogg uns exzentrischen von der Wette erzählt hat und glaube nicht an ihn. ", img: "bilder/bild.svg" },
-    { name: "Noah/Florin", rolle: "Batulcar", info: "Guten Tag ich bin Zirkusdirektor Batulcar. In meinem Zirkus gibt es zum Bsp: den kleinsten Affen der Welt oder den größte Elefanten der Welt.", img: "bilder/bild.svg" },
-    { name: "Angelo/Hannah/Mika/Lena", rolle: "Regisseur/Sprecher", info: "Wir drehen eine Serie mit dem Namen: 'In 80 Tagen um die Welt'. Wir erzählen die Die Szenen weiter die als Theaterstück schwer umzusetzen sind. Außerdem geben wir kleinere Informationen zu den Hauptdarstellern.", img: "bilder/bild.svg" },
-    { name: "Jakob/Raphael", rolle: "Fix", info: "Mein Name ist Fix. Ich bin Agent von Scotland Yard und versuche den Bankräuber zu fassen der die Bank von England überfallen hat.", img: "bilder/bild.svg" },
-    { name: "Niclas/Lamia", rolle: "Schaffner", info: "Ich bin der Schaffner. Ich habe die Fahrkarten von Mister Fogg getackert.", img: "bilder/bild.svg" },
-    { name: "Robert/Lennart", rolle: "Stuart", info: "Good Morning ich bin Stuart und Mitglied im Club der Exzentrischen. Ich bin verwöhnt und Luxus-süchtig.", img: "bilder/bild.svg" },
-    { name: "Name 9", rolle: "Rolle 9", info: "Beschreibung für Person 9...", img: "bilder/bild.svg" },
-    { name: "Name 10", rolle: "Rolle 10", info: "Beschreibung für Person 10...", img: "bilder/bild.svg" },
-    { name: "Name 11", rolle: "Rolle 11", info: "Beschreibung für Person 11...", img: "bilder/bild.svg" },
-    { name: "Name 12", rolle: "Rolle 12", info: "Beschreibung für Person 12...", img: "bilder/bild.svg" },
-    { name: "Name 13", rolle: "Rolle 13", info: "Beschreibung für Person 13...", img: "bilder/bild.svg" },
-    { name: "Name 14", rolle: "Rolle 14", info: "Beschreibung für Person 14...", img: "bilder/bild.svg" },
-    { name: "Name 15", rolle: "Rolle 15", info: "Beschreibung für Person 15...", img: "bilder/bild.svg" }
+    {order: "1", name: "Toni/Charlotte", rolle: "Mister Fogg", info: "Mister Phileas Fogg ist ein reicher englischer Gentleman der die Wette annimmt in 80 Tagen um die Erde zu reisen. Auf der Reise lernt er auch seine zukünftige Ehefrau kennen.", img: "bilder/bild.svg" },
+    {order: "2", name: "Julian/Jo", rolle: "Passepartout", info: "Ich heiße Jean Passepartout. Den Spitznamen 'Passepartout' habe ich bekommen weil ich aus jeder Situation herauskomme. Ich bin stolzer und treuer Franzose und bin anpassungsfähig. Außerdem bin ich viel gereist und habe an vielen Stellen gearbeitet. Jetzt abeite ich beim exzentrischen Fogg und hoffe da Ruhe zu finden.", img: "bilder/bild.svg" },
+    {order: "6", name: "Noah/Anastasia", rolle: "Sullivan", info: "Hallo ich bin Sullivan und bin Mitglied beim Club der exzentrischen. Ich bin sehr skeptisch nachdem Mr Fogg uns exzentrischen von der Wette erzählt hat und glaube nicht an ihn. ", img: "bilder/bild.svg" },
+    {order: "17", name: "Noah/Florin", rolle: "Batulcar", info: "Guten Tag ich bin Zirkusdirektor Batulcar. In meinem Zirkus gibt es zum Bsp: den kleinsten Affen der Welt oder den größte Elefanten der Welt.", img: "bilder/bild.svg" },
+    {order: "0", name: "Angelo/Mika/Hannah/Lena", rolle: "Regisseur/Produzent", info: "Wir drehen eine Serie mit dem Namen: 'In 80 Tagen um die Welt'. Wir erzählen die Die Szenen weiter die als Theaterstück schwer umzusetzen sind. Außerdem geben wir kleinere Informationen zu den Hauptdarstellern.", img: "bilder/bild.svg" },
+    {order: "3", name: "Jakob/Raphael", rolle: "Fix", info: "Mein Name ist Fix. Ich bin Agent von Scotland Yard und versuche den Bankräuber zu fassen der die Bank von England überfallen hat.", img: "bilder/bild.svg" },
+    {order: "7", name: "Niclas/Florin", rolle: "Kapitän Speedy", info: "Kapitän Speedy gehört die Henriette. Er verkauft sie an Herrn Fogg für 60 Tausend Dollar. Außerdem bezahlt er seine Mannschaft nicht immer pünktlich.", img: "bilder/bild.svg" },
+    {order: "8", name: "Robert/Lennart", rolle: "Stuart", info: "Good Morning ich bin Stuart und Mitglied im Club der Exzentrischen. Ich bin verwöhnt und Luxus-süchtig.", img: "bilder/bild.svg" },
+    {order: "9", name: "Malte/Fin", rolle: "Ralph", info: "Ralph ist ein Mann aus dem Club der Exzentrischen. Er ist Reich und interresiert sich für Neues. Er glaubt nicht, dass Fogg die Reise schafft. Er ist Ruhig und spricht sachlich.", img: "bilder/bild.svg" },
+    {order: "10", name: "Malte/Mavie", rolle: "Cromarty", info: "Cromarty ist ein Ex-soldat aus dem Stück. Er hilft Phileas Fogg und seinen Freunden kurz auf ihrer Reise. Er ist mutig, ruhig und Zuverlässig.", img: "bilder/bild.svg" },
+    {order: "11", name: "Bela/Lamia", rolle: "Archibald", info: "Archibald Corsican ist ein Amerikaner und dem Club 'Die Exzentrischen' beizutreten. Zuerst wurde er abgelehnt, doch dann will er sich nochmal reinschmuggeln indem er Fogg auf seiner Reise begleitet.", img: "bilder/bild.svg" },
+    {order: "12", name: "Mavie/Lenja", rolle: "Dolly", info: "Dolly ist ein Dienstmädchen aus London. Sie arbeitet im Club der Exzentrischen. Sie hat während ihrer Arbeit Passepartout kennengelernt und sich mit ihm angefreundet.", img: "bilder/bild.svg" },
+    {order: "13", name: "Jonte/Jonna", rolle: "Konsul", info: 'Der Konsul vergibt ein Visum an Herrn Fogg und ist sehr ordentlich. Er misstraut Fix der Herrn Fogg verdächtigt.', img: "bilder/bild.svg" },
+    {order: "14", name: "Jona/Leander", rolle: "Flanagen", info:  "Flanagan ist im Club der exzentrischen. Die anderen Exzentrischen mögen ihn nicht so gerne wegen seiner abgehobenen art.", img: "bilder/bild.svg" },
+    {order: "15", name: "Carl/Richard", rolle: "Wärter", info:  "Der Wärter ist eigentlich unwichtig für das Stück aber trotzdem der Kontakt zur außenwelt für Fogg.", img: "bilder/bild.svg" },
+    {order: "16", name: "Carl/Ana", rolle: "Kneipenbesitzer", info:  "Der Kneipenbesitzer ist der Besitzer der Opiumhöhle und sehr freundlich. Er hilft seinen Besuchern beim Rauchen.", img: "bilder/bild.svg" },
+    {order: "4", name: "Ana/Milla", rolle: "Aouda", info:  "Aouda wurde von Mister Fogg vor dem verbrennen gerettet. Nach langer Zeit trifft sie Nemea wieder und begleiten zusammen Mister Fogg auf seiner Reise. Am Ende des Stücks heiratet Aouda Mister Fogg.", img: "bilder/bild.svg" },
+    {order: "18", name: "", rolle: "Elefanten<br>besitzer", info:  "Der Elefantenbesitzer verkauft seinen Elefanten an die Reisegruppe und führt sie durch Indien.", img: "bilder/bild.svg" },
+    {order: "19", name: "", rolle: "Sargant", info:  "Meine Aufgabe den Zug vor Räubern und anderen gefahren zu schützen. Ich habe 100 Mann die mir dauerhaft bei den Aufgaben helfen. Außerdem habe ich Fogg mit seinem Problem geholfen.", img: "bilder/bild.svg" },
+    {order: "20", name: "", rolle: "Hauptmann", info:  "", img: "bilder/bild.svg" },
+    {order: "5", name: "Jonna/Lena", rolle: "Nemea", info: "Nemea ist die Schwester von Aouda nach etwa einem Drittel des Stückes, trifft sie auf die Reisegesellschaft und schließt sich ihr an.", img: "bilder/bild.svg" }
 ];
 
-
-
+/*<img src="${p.img}" class="cast-image" alt="${p.name}">*/
+cast.sort((a, b) => a.order - b.order);
 const container = document.getElementById('castContainer');
 cast.forEach(p => {
     const card = document.createElement('div');
     card.className = 'cast-card';
     card.innerHTML = `
-        <img src="${p.img}" class="cast-image" alt="${p.name}">
-        <div style="padding:15px"><h3>${p.rolle}</h3><p><strong>${p.name}</strong></p></div>
+        
+        <div style="padding:15px;text-align:center"><h3>${p.rolle}</h3><p><strong style:"text-align:center">${p.name}</strong></p></div>
         <div class="description">${p.info}</div>`;
     card.onclick = () => card.classList.toggle('active');
     container.appendChild(card);
@@ -127,6 +134,7 @@ function changeside(sidetemporary) {
         faq.style.display = "none";
         label.innerHTML = "In 80 Tagen um die Welt";
         acht.style.display = "";
+        datenschutz.style.display = "none";
     }
     if (sidetemporary == 2) {
         roles.style.display = "block";
@@ -141,6 +149,7 @@ function changeside(sidetemporary) {
         faq.style.display = "none";
         label.innerHTML = "Rollen";
         acht.style.display = "none";
+        datenschutz.style.display = "none";
     }
     if (sidetemporary == 3) {
         roles.style.display = "none";
@@ -155,6 +164,7 @@ function changeside(sidetemporary) {
         faq.style.display = "";
         label.innerHTML = "Infos und FAQ";
         acht.style.display = "none";
+        datenschutz.style.display = "none";
     }
     if (sidetemporary == 4) {
         roles.style.display = "none";
@@ -169,6 +179,7 @@ function changeside(sidetemporary) {
         faq.style.display = "none";
         label.innerHTML = "Story";
         acht.style.display = "none";
+        datenschutz.style.display = "none";
     }
     if (sidetemporary == 5) {
         roles.style.display = "none";
@@ -183,6 +194,7 @@ function changeside(sidetemporary) {
         faq.style.display = "none";
         label.innerHTML = "Galerie";
         acht.style.display = "none";
+        datenschutz.style.display = "none";
     }
     if (sidetemporary == 6) {
         roles.style.display = "none";
@@ -195,9 +207,11 @@ function changeside(sidetemporary) {
         tableroles.style.display = "none";
         galerieContainer.style.display = "none";
         faq.style.display = "none";
-        label.innerHTML = "6";
+        label.innerHTML = "Datenschutz";
         acht.style.display = "none";
+        datenschutz.style.display = "block";
     }
+
 }
 
 changeside(1);
@@ -216,7 +230,7 @@ changeside(1);
 
 const meineFotos = [
   { url: 'bilder/bild.svg', info: 'Lorem Ipsum' },
-  { url: 'bilder/bild.svg', info: 'Lorem Ipsum 2' }
+  { url: 'bilder/titelbildtest.svg', info: 'Custom Titelbild' }
 ];
 
 
@@ -280,7 +294,7 @@ const daten = [
   { name: "Lennart", rolle: "Clown 1", name2:"Slavin" },
   { name: "Toni", rolle: "Clown 2", name2:"Milla" },
   { name: "", rolle: "Dame 2", name2:"" },
-  { name: "Zena", rolle: "Haupt-<br>mann/Frau", name2:"Jonte" },
+  { name: "Zena", rolle: "Haupt-<br>mann/frau", name2:"Jonte" },
   { name: "Raphael", rolle: "Sergant", name2:"Jona" },
   { name: "Niclas", rolle: "Speedy", name2:"Florin" },
   { name: "Carl", rolle: "Wärter", name2:"Richard" },
@@ -324,6 +338,7 @@ function submit(){
         sixseven();
     }
 }
+
 
 // Startet die Animation sofort
 /*confetti({
