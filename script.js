@@ -209,7 +209,7 @@ function changeside(sidetemporary) {
         faq.style.display = "none";
         label.innerHTML = "Datenschutz";
         acht.style.display = "none";
-        datenschutz.style.display = "";
+        datenschutz.style.display = "block";
     }
 
 }
